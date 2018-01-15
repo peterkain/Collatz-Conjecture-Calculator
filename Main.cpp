@@ -31,10 +31,10 @@
  *     Decides where the loop ends. Set accordingly
  */
 
-#define DEBUG_INFO 1
-#define WRITE_TO_FILE 1
+#define DEBUG_INFO 0
+#define WRITE_TO_FILE 0
 #define RANGE_MIN 1
-#define RANGE_MAX 1000
+#define RANGE_MAX 1000000
 
 using namespace std;
 
@@ -92,7 +92,11 @@ int main()
             counter++;
 #endif
         }
+#if DEBUG_INFO && !WRITE_TO_FILE
+        cout << "\n";
+#elif DEBUG_INFO && WRITE_TO_FILE
         file << "\n";
+#endif
     }
 
 #if DEBUG_INFO && !WRITE_TO_FILE
